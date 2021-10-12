@@ -37,4 +37,16 @@
         - password: root
         - port: 27017
 
+- **Redis + Redis Commander**
+    - images:
+        - redis: https://hub.docker.com/_/redis
+        - mongo express: https://hub.docker.com/_/mongo-express
+
+    - commands:
+        >> cd redis
+
+        >> docker-compose up -d
+
+    - link: http://localhost:8083/
+
 
