@@ -21,7 +21,7 @@ services:
     networks:
       - postgres_net
     volumes:
-      - posgres_vol:data/var/lib/postgresql/data
+      - posgres_vol:/var/lib/postgresql/data
 
 
   pgadmin:
