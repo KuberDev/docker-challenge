@@ -1,0 +1,38 @@
+
+version: "3.8"
+
+
+volumes:
+  posgres_vol:
+
+networks:
+  postgres_net:
+    driver: bridge
+
+services:
+  postgres:
+    image: postgres:14.0
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+     # Attention! Opens port 5432
+    ports:
+      - 5432:5432
+    networks:
+      - postgres_net
+    volumes:
+      - posgres_vol:data/var/lib/postgresql/data
+
+
+  pgadmin:
+    image: dpage/pgadmin4:6.0
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+     # Attention! Opens port 8082
+    ports:
+      - 8082:80
+    networks:
+      - postgres_net
+    depends_on:
+      - postgres
