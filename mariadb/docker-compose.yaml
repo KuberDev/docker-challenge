@@ -1,0 +1,35 @@
+
+version: "3.8"
+
+volumes:
+  maria_data:
+
+networks:
+  maria_net:
+    driver: bridge
+
+services:
+  mariadb:
+    image: mariadb:10.6.4-focal
+     # Attention! Opens port 27017
+    ports:
+      - 3306:3306
+    networks:
+      - maria_net
+    volumes:
+      - maria_data:/var/lib/mysql
+    environment:
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+
+  phpmyadmin:
+    image: phpmyadmin
+     # Attention! Opens port 8081
+    ports:
+      - 8084:80
+    networks:
+      - maria_net
+    depends_on:
+      - mariadb
+    environment:
+      - PMA_ARBITRARY=1
