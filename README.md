@@ -101,20 +101,20 @@
 
 
 
-## Question 3
+## Question 3 - Applications
 
 - NodeJS Application: https://github.com/KuberDev/conversao-temperatura
 - Flask Application: https://github.com/KuberDev/conversao-distancia
 - ASP.NET Core Application: https://github.com/KuberDev/conversao-distancia
 
-## Question 4
+## Question 4 - Application and Database
 - Flask + Mongo + env: https://github.com/KuberDev/rotten-potatoes
 
-## Question 5
+## Question 5 - Wordpress
 https://github.com/KuberDev/dockerized-wordpress
 
 
-## Question 6
+## Question 6 - Microservices
 Handled this problem by creating 3 docker-compose.yaml files in each repository. Creating 4 networks to isolate/bind only the needed containers and only exposing rotten-potatoes app port to localhost.
 ![Diagrama da solução](./img/ms.png)
 
@@ -127,9 +127,7 @@ Handled this problem by creating 3 docker-compose.yaml files in each repository.
  - https://github.com/KuberDev/rotten-potatoes-ms
 
 
-
-
-## Developer Notes (Question 7)
+## Question 7 - Notes
 
 ### Useful Docker commands:
 
