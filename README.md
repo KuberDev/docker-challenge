@@ -111,8 +111,14 @@
 ## Question 4
 - Flask + Mongo + env: https://github.com/KuberDev/rotten-potatoes
 
-
-
 ## Question 5
 https://github.com/KuberDev/dockerized-wordpress
 
+
+## Question 6
+1 - Get Repositories & run `docker-compose up -d`
+ - https://github.com/KuberDev/review
+ - https://github.com/KuberDev/movie
+
+2 - Get Repository, run `docker-compose up -d` & visit `http://localhost/` in your browser
+ - https://github.com/KuberDev/rotten-potatoes-ms
