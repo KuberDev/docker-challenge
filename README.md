@@ -1,5 +1,9 @@
 # Docker Challenge
 
+
+
+
+
 ## Question 1 - Database Containers Commands
 
 - **MongoDB** [Docker Hub](https://hub.docker.com/_/mongo)
@@ -62,8 +66,7 @@
 
     - link: http://localhost:8082/
 
-    - Get progres IP
-        >> docker inspect <postgres_container_id> | grep IPAddress FIXME:
+    - Get database IP: `docker inspect <postgres_container_id> | grep IPAddress`
     - login with credentials:
         - ip: (get on terminal from previous step)
         - user: admin
@@ -75,14 +78,12 @@
 - **PostgreSQL + PgAdmin**
     - - mongo express [Docker Hub](https://hub.docker.com/_/mongo-express)
 
-    - commands:
-        >> `cd postgresql docker-compose up -d`
+    - commands: `cd postgresql docker-compose up -d`
 
     - link: http://localhost:8083/
     - login with credentials: `admin@admin.com | admin`
-    - Get progres IP
-        >> docker inspect <postgres_container_id> | grep IPAddress FIXME:
-    - Add server connection
+    - Get database IP: `docker inspect <postgres_container_id> | grep IPAddress`
+    - To add server connection
         - IP: from previous step  (might be 172.24.0.2)
         - user: root
         - password: root
@@ -120,3 +121,54 @@ https://github.com/KuberDev/dockerized-wordpress
 
 2 - Get Repository, run `docker-compose up -d` & visit `http://localhost/` in your browser
  - https://github.com/KuberDev/rotten-potatoes-ms
+
+
+
+
+
+## Developer Notes (Question 7)
+
+### Useful Docker commands:
+
+- Add tag:
+
+    `docker tag <nunojacinto/api-produto:v1> <nunojacinto/api-produto:latest>`
+
+- Create image form Dockerfile:
+
+    `docker image build -t <image_name> <path_of_dockerFile>`
+
+- Create container from existing image:
+
+    `docker container run -d -p 8080:80 <image_id_or_name>`
+
+- Inspect container:
+
+    `docker inspect <container-id>`
+
+- Execute container in interactive mode:
+
+    `` TODO:
+
+- See container logs:
+
+    `docker inspect <container-id>`
+
+- Run a Docker compose:
+
+    `docker-compose up -d`
+
+- Shutdown Docker compose:
+
+    `docker-compose down`   (Add `—volumes` flag to clean everything)
+
+
+
+### Docker good practices to keep in mind
+- Docker image name
+- Use preferencial oficial images
+- Tag a specific version in your image (avoid the use of latest)
+- Use .env to configure your docker-compose
+- If you want persistent data use volumes
+- Use docker layers in your advantage, to improve image performance (for example: do a “build image” and a “deploy image”)
+- Use .dockerignore
