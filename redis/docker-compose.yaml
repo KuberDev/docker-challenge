@@ -25,9 +25,9 @@ services:
   redis-comander:
     image:
       rediscommander/redis-commander:latest
-      # Attention! Opens port 8081
+      # Attention! Opens port 8084
     ports:
-      - 8083:8081
+      - 8084:8081
     networks:
       - redis_net
     depends_on:

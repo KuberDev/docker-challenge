@@ -4,29 +4,37 @@
 
 - **MongoDB** [Docker Hub](https://hub.docker.com/_/mongo)
 	- Create Volume
-	>> docker volume create mongo_data
+
+    	`docker volume create mongo_data`
 	- Create Container
-	>> docker container run -d -v mongo_data:/data/db -p 27017:27017 --name mongoDB -e MONGO_INITDB_ROOT_USERNAME=user -e MONGO_INITDB_ROOT_PASSWORD=password mongo:4.4.3
+
+    	`docker container run -d -v mongo_data:/data/db -p 27017:27017 --name mongoDB -e MONGO_INITDB_ROOT_USERNAME=user -e MONGO_INITDB_ROOT_PASSWORD=password mongo:4.4.3`
 
 
 - **MariaDB** [Docker Hub](https://hub.docker.com/_/mariadb)
 	- Create Volume
-	>> docker volume create maria_data
+
+    	`docker volume create maria_data`
 	- Create Container
-    >> docker container run -d -v maria_data::/var/lib/mysql -p 3306:3306 -e MYSQL_USER=user -e MYSQL_PASSWORD=password mariadb:10.6.4-focal
+
+        `docker container run -d -v maria_data::/var/lib/mysql -p 3306:3306 -e MYSQL_USER=user -e MYSQL_PASSWORD=password mariadb:10.6.4-focal`
 
 - **PostgreSQL** [Docker Hub](https://hub.docker.com/_/postgres)
 	- Create Volume
-	>> docker volume create postgres_data
+
+        `docker volume create postgres_data`
 	- Create Container
-    >> docker container run -d -v postgres_data:/var/lib/postgresql/data -p 5432:5432 -e POSTGRES_USER=user -e POSTGRES_PASSWORD=password postgres:14.0
+
+        `docker container run -d -v postgres_data:/var/lib/postgresql/data -p 5432:5432 -e POSTGRES_USER=user -e POSTGRES_PASSWORD=password postgres:14.0`
 
 
 - **Redis** [Docker Hub](https://hub.docker.com/_/redis)
 	- Create Volume
-	>> docker volume create redis_data
+
+        `docker volume create redis_data`
 	- Create Container
-    >> docker container run -d -v redis_data:/data -p 6379:6379 -e redis:6.2.6
+
+        `docker container run -d -v redis_data:/data -p 6379:6379 -e redis:6.2.6`
 
 
 <br>
@@ -38,10 +46,7 @@
 
     - mongo express [Docker Hub](https://hub.docker.com/_/mongo-express)
 
-    - commands:
-        >> cd mongodb
-
-        >> docker-compose up -d
+    - commands: `cd mongodb && docker-compose up -d`
 
     - link: http://localhost:8081/
     - URI: mongodb://admin:password@localhost:27017/admin
@@ -53,14 +58,12 @@
     - phpmyadmin [Docker Hub](https://hub.docker.com/r/phpmyadmin/phpmyadmin/)
 
     - commands:
-        >> cd redis
+        `cd redis docker-compose up -d`
 
-        >> docker-compose up -d
-
-    - link: http://localhost:8084/
+    - link: http://localhost:8082/
 
     - Get progres IP
-        >> docker inspect <postgres_container_id> | grep IPAddress
+        >> docker inspect <postgres_container_id> | grep IPAddress FIXME:
     - login with credentials:
         - ip: (get on terminal from previous step)
         - user: admin
@@ -73,14 +76,12 @@
     - - mongo express [Docker Hub](https://hub.docker.com/_/mongo-express)
 
     - commands:
-        >> cd postgresql
+        >> `cd postgresql docker-compose up -d`
 
-        >> docker-compose up -d
-
-    - link: http://localhost:8082/
+    - link: http://localhost:8083/
     - login with credentials: `admin@admin.com | admin`
     - Get progres IP
-        >> docker inspect <postgres_container_id> | grep IPAddress
+        >> docker inspect <postgres_container_id> | grep IPAddress FIXME:
     - Add server connection
         - IP: from previous step  (might be 172.24.0.2)
         - user: root
@@ -93,12 +94,9 @@
 - **Redis + Redis Commander**
     - mongo express: [Docker Hub](https://hub.docker.com/_/mongo-express)
 
-    - commands:
-        >> cd redis
+    - commands:`cd redis docker-compose up -d`
 
-        >> docker-compose up -d
-
-    - link: http://localhost:8083/
+    - link: http://localhost:8084/
 
 
 

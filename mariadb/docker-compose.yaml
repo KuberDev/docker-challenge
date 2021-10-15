@@ -24,9 +24,9 @@ services:
 
   phpmyadmin:
     image: phpmyadmin
-     # Attention! Opens port 8081
+     # Attention! Opens port 8082
     ports:
-      - 8084:80
+      - 8082:80
     networks:
       - maria_net
     depends_on:
