@@ -115,13 +115,16 @@ https://github.com/KuberDev/dockerized-wordpress
 
 
 ## Question 6
+Handled this problem by creating 3 docker-compose.yaml files in each repository. Creating 4 networks to isolate/bind only the needed containers and only exposing rotten-potatoes app port to localhost.
+![Diagrama da solução](./img/ms.png)
+
+
 1 - Get Repositories & run `docker-compose up -d`
  - https://github.com/KuberDev/review
  - https://github.com/KuberDev/movie
 
 2 - Get Repository, run `docker-compose up -d` & visit `http://localhost/` in your browser
  - https://github.com/KuberDev/rotten-potatoes-ms
-
 
 
 
@@ -148,7 +151,7 @@ https://github.com/KuberDev/dockerized-wordpress
 
 - Execute container in interactive mode:
 
-    `` TODO:
+    `docker exec it <container-id> bash`
 
 - See container logs:
 
