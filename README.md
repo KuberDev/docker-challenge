@@ -79,13 +79,21 @@
     - commands: `cd postgresql docker-compose up -d`
 
     - link: http://localhost:8083/
-    - login with credentials: `admin@admin.com | admin`
+    - login with credentials: username:`admin@admin.com`, password: `admin`
+
+        ![login pgAdmin](./img/login.png)
+
+
     - Get database IP: `docker inspect <postgres_container_id> | grep IPAddress`
-    - To add server connection
-        - IP: from previous step  (might be 172.24.0.2)
-        - user: root
-        - password: root
-        - port: 27017
+        ![login pgAdmin](./img/get-ip.png)
+
+    - Add server connection
+        - IP: from previous step  (got from prev step. 192.168.208.2 in image)
+        - user: user
+        - password: pwd
+        - port: 5432
+        ![login pgAdmin](./img/create-server.png)
+
 
 
 <br>
