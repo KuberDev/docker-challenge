@@ -105,7 +105,7 @@
 
 - NodeJS Application: https://github.com/KuberDev/conversao-temperatura
 - Flask Application: https://github.com/KuberDev/conversao-distancia
-- ASP.NET Core Application: https://github.com/KuberDev/conversao-distancia
+- ASP.NET Core Application: https://github.com/KuberDev/conversao-peso
 
 ## Question 4 - Application and Database
 - Flask + Mongo + env: https://github.com/KuberDev/rotten-potatoes
