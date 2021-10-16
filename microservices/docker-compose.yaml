@@ -1,0 +1,82 @@
+version: "3.8"
+
+
+volumes:
+  review_data: {}
+  movie_data: {}
+
+networks:
+  review_network:
+    driver: bridge
+  review_data_network:
+    driver: bridge
+  movie_network:
+    driver: bridge
+  movie_data_network:
+    driver: bridge
+
+
+services:
+
+  app:
+    image: nunojacinto/rotten-potatoes-ms:v1
+    ports:
+      - ${APP_PORT}:5000
+    networks:
+      - review_network
+      - movie_network
+    depends_on:
+      - movie_app
+      - review_app
+    environment:
+      MOVIE_SERVICE_URI: http://movie_app:${MOVIE_APP_PORT}
+      REVIEW_SERVICE_URI: http://review_app:${REVIEW_APP_PORT}
+
+  # Movie
+  movie_app:
+    image: nunojacinto/movie:v1
+    networks:
+      - movie_network
+      - movie_data_network
+    depends_on:
+      - movie_db
+    environment:
+      MONGODB_URI: mongodb://${MOVIE_DB_USERNAME}:${MOVIE_DB_PASSWORD}@movie_db:27017/${MOVIE_DB_NAME}
+
+  movie_db:
+    image: mongo:${MOVIE_DB_VERSION}
+    networks:
+      - movie_data_network
+    volumes:
+      - movie_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MOVIE_DB_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD:  ${MOVIE_DB_PASSWORD}
+
+
+
+  # Review
+  review_app:
+    image: nunojacinto/review:v1
+    networks:
+      - review_network
+      - review_data_network
+    depends_on:
+      - review_db
+    environment:
+      ConnectionStrings__MyConnection: Host=review_db;Database=${REVIEW_DB};Username=${REVIEW_DB_USER};Password=${REVIEW_DB_PASSWORD};
+
+  review_db:
+    image: postgres:${POSTGRES_VERSION}
+    networks:
+      - review_data_network
+    volumes:
+      - review_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${REVIEW_DB_USER}
+      POSTGRES_PASSWORD: ${REVIEW_DB_PASSWORD}
+
+
+
+
+
