@@ -10,20 +10,19 @@ networks:
 
 services:
   mariadb:
-    image: mariadb:10.6.4-focal
-     # Attention! Opens port 27017
-    ports:
-      - 3306:3306
+    image: mariadb:10.4
+    restart: always
+    # ports:
+    #   - 3306:3306
     networks:
       - maria_net
     volumes:
       - maria_data:/var/lib/mysql
     environment:
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: password
 
   phpmyadmin:
-    image: phpmyadmin
+    image: phpmyadmin:5.1.1
      # Attention! Opens port 8082
     ports:
       - 8082:80
@@ -33,3 +32,4 @@ services:
       - mariadb
     environment:
       - PMA_ARBITRARY=1
+      - PMA_HOST=mariadb

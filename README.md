@@ -58,7 +58,7 @@
 
 <br>
 
-- **MariaDB + PHPmyadmin**
+- **MariaDB + PHPmyadmin** [link](https://hackernoon.com/mariadb-phpmyadmin-docker-running-local-database-ok9q36ji)
     - phpmyadmin [Docker Hub](https://hub.docker.com/r/phpmyadmin/phpmyadmin/)
 
     - commands:
@@ -66,11 +66,9 @@
 
     - link: http://localhost:8082/
 
-    - Get database IP: `docker inspect <postgres_container_id> | grep IPAddress`
     - login with credentials:
-        - ip: (get on terminal from previous step)
-        - user: admin
-        - password: admin
+        - user: root
+        - password: password
 
 
 <br>
