@@ -76,7 +76,7 @@
 <br>
 
 - **PostgreSQL + PgAdmin**
-    - - mongo express [Docker Hub](https://hub.docker.com/_/mongo-express)
+    - pg admin [Docker Hub](https://hub.docker.com/r/dpage/pgadmin4)
 
     - commands: `cd postgresql docker-compose up -d`
 
@@ -93,7 +93,7 @@
 <br>
 
 - **Redis + Redis Commander**
-    - mongo express: [Docker Hub](https://hub.docker.com/_/mongo-express)
+    - redis commander: [Docker Hub](https://hub.docker.com/r/rediscommander/redis-commander)
 
     - commands:`cd redis docker-compose up -d`
 
